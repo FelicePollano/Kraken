@@ -31,7 +31,9 @@ light_indirect_energy = 2.32
 shadow_enabled = true
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.993226, 0.116203, 0, -0.116203, 0.993226, -1.95682, 1.02052, 3.99294 )
+transform = Transform( 0.908763, -0.382111, -0.167751, 0.417312, 0.832108, 0.365305, 0, -0.40198, 0.915648, 1.20583, 1.4686, 5.08647 )
 
 [node name="Car" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+engine_force = 150.0
+brake = 1.0
