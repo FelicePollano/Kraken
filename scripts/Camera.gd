@@ -25,8 +25,8 @@ func _physics_process(delta):
 	else:
 		target_pos.y = follow_this.global_transform.origin.y + target_height
 	
-	global_transform.origin = global_transform.origin.linear_interpolate(target_pos, delta * 20.0)
+	global_transform.origin = global_transform.origin.linear_interpolate(target_pos, delta * 10.0)
 	
-	last_lookat = last_lookat.linear_interpolate(follow_this.global_transform.origin, delta * 20.0)
+	last_lookat = last_lookat.linear_interpolate(follow_this.global_transform.origin, delta * 10.0)
 	
 	look_at(last_lookat, Vector3(0.0, 1.0, 0.0))
