@@ -57,6 +57,8 @@ target_distance = 6.5
 [node name="Car" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
 brake = 1.0
+MAX_ENGINE_FORCE = 100.0
+MAX_STEER_ANGLE = 0.35
 
 [node name="Spatial" type="Spatial" parent="."]
 
