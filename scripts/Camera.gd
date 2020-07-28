@@ -30,3 +30,6 @@ func _physics_process(delta):
 	last_lookat = last_lookat.linear_interpolate(follow_this.global_transform.origin, delta * 10.0)
 	
 	look_at(last_lookat, Vector3(0.0, 1.0, 0.0))
+
+
+

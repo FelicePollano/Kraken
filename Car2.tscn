@@ -27,7 +27,7 @@ albedo_color = Color( 1, 1, 1, 0.129412 )
 extents = Vector3( 1, 0.512103, 1 )
 
 [node name="Car" instance=ExtResource( 1 )]
-mass = 42.72
+mass = 46.1
 continuous_cd = true
 
 [node name="front_left" parent="." index="2"]
