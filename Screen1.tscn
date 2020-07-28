@@ -77,3 +77,52 @@ path_local = false
 path_continuous_u = false
 path_joined = false
 material = SubResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Damping-compression" type="HSlider" parent="CanvasLayer"]
+margin_right = 278.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damping-expansion" type="HSlider" parent="CanvasLayer"]
+margin_top = 24.0
+margin_right = 278.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rest-Length" type="HSlider" parent="CanvasLayer"]
+margin_top = 48.0
+margin_right = 278.0
+margin_bottom = 64.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Suspension-Travel" type="HSlider" parent="CanvasLayer"]
+margin_top = 80.0
+margin_right = 278.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Suspension-Stiffness" type="HSlider" parent="CanvasLayer"]
+margin_top = 104.0
+margin_right = 278.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Suspension-MaxForce" type="HSlider" parent="CanvasLayer"]
+margin_top = 128.0
+margin_right = 278.0
+margin_bottom = 144.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
