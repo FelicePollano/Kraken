@@ -24,7 +24,7 @@ flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0.129412 )
 
 [sub_resource type="BoxShape" id=6]
-extents = Vector3( 1, 0.512103, 2.06811 )
+extents = Vector3( 1, 0.48991, 2.285 )
 
 [node name="Car" instance=ExtResource( 1 )]
 mass = 46.1
@@ -87,5 +87,5 @@ material/0 = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="8"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009, 0.508, 0.268112 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007703, 0.472288, 0.342286 )
 shape = SubResource( 6 )
