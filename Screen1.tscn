@@ -7,7 +7,8 @@
 [ext_resource path="res://Car2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Car.gd" type="Script" id=6]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=6]
+margin = 0.001
 extents = Vector3( 1000, 0, 1000 )
 
 [sub_resource type="PlaneMesh" id=2]
@@ -35,7 +36,7 @@ uv2_scale = Vector3( 5, 5, 5 )
 [node name="StaticBody" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape"]
 transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -0.1, 0 )
@@ -57,11 +58,13 @@ follow_this_path = NodePath("../Car2")
 target_distance = 6.5
 
 [node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.159424, 0 )
 
 [node name="Path" type="Path" parent="Spatial"]
 curve = SubResource( 4 )
 
 [node name="Road" type="CSGPolygon" parent="Spatial/Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104652, -0.024559, -0.0419006 )
 use_collision = true
 invert_faces = true
 polygon = PoolVector2Array( -4.5, 0, -4.5, 0, 4.5, 0.1, 4.5, 0.1 )
@@ -71,12 +74,13 @@ path_interval = 1.0
 path_rotation = 2
 path_local = false
 path_continuous_u = false
-path_joined = false
+path_joined = true
 material = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Damping-compression" type="HSlider" parent="CanvasLayer"]
+visible = false
 margin_right = 278.0
 margin_bottom = 16.0
 max_value = 1000.0
@@ -89,6 +93,7 @@ Variable = "damping_compression"
 divide = 1000
 
 [node name="Damping-relaxation" type="HSlider" parent="CanvasLayer"]
+visible = false
 margin_left = 1.0
 margin_top = 24.0
 margin_right = 279.0
@@ -103,6 +108,7 @@ Variable = "damping_relaxation"
 divide = 1000
 
 [node name="Rest-Length" type="HSlider" parent="CanvasLayer"]
+visible = false
 margin_top = 48.0
 margin_right = 278.0
 margin_bottom = 64.0
@@ -115,6 +121,7 @@ Variable = "wheel_rest_length"
 divide = 1000
 
 [node name="Suspension-Travel" type="HSlider" parent="CanvasLayer"]
+visible = false
 margin_top = 80.0
 margin_right = 278.0
 margin_bottom = 96.0
@@ -128,6 +135,7 @@ Variable = "suspension_travel"
 divide = 1000
 
 [node name="Suspension-Stiffness" type="HSlider" parent="CanvasLayer"]
+visible = false
 margin_top = 104.0
 margin_right = 278.0
 margin_bottom = 120.0
@@ -140,6 +148,7 @@ Car = NodePath("../../Car2")
 Variable = "suspension_stiffness"
 
 [node name="Suspension-MaxForce" type="HSlider" parent="CanvasLayer"]
+visible = false
 margin_left = 1.0
 margin_top = 127.0
 margin_right = 279.0
@@ -153,6 +162,7 @@ Car = NodePath("../../Car2")
 Variable = "suspension_max_force"
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 302.0
 margin_top = 3.0
 margin_right = 450.0
@@ -165,6 +175,7 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 302.0
 margin_top = 27.0
 margin_right = 450.0
@@ -177,6 +188,7 @@ __meta__ = {
 }
 
 [node name="Label3" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 303.0
 margin_top = 48.0
 margin_right = 451.0
@@ -189,6 +201,7 @@ __meta__ = {
 }
 
 [node name="Label4" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 304.0
 margin_top = 78.0
 margin_right = 452.0
@@ -201,6 +214,7 @@ __meta__ = {
 }
 
 [node name="Label5" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 304.0
 margin_top = 105.0
 margin_right = 452.0
@@ -213,6 +227,7 @@ __meta__ = {
 }
 
 [node name="Label6" type="Label" parent="CanvasLayer"]
+visible = false
 margin_left = 304.0
 margin_top = 129.0
 margin_right = 452.0
@@ -225,7 +240,7 @@ __meta__ = {
 }
 
 [node name="Car2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95442, 1.15505, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95442, 0.294149, 0 )
 script = ExtResource( 6 )
 [connection signal="value_changed" from="CanvasLayer/Damping-compression" to="CanvasLayer/Damping-compression" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Damping-relaxation" to="CanvasLayer/Damping-relaxation" method="_on_value_changed"]
