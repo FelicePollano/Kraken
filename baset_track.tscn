@@ -55,7 +55,8 @@ material = SubResource( 2 )
 [node name="RightBarrier" type="CSGPolygon" parent="."]
 visible = false
 use_collision = true
-polygon = PoolVector2Array( 5, -0.2, 5, 1.5, 4.4, 1.5, 4.4, -0.1 )
+invert_faces = true
+polygon = PoolVector2Array( 5.8, -0.2, 5.8, 1.5, 5, 1.5, 5, -0.1 )
 mode = 2
 path_node = NodePath("..")
 path_interval = 1.0
@@ -67,14 +68,15 @@ path_joined = true
 [node name="LeftBarrier" type="CSGPolygon" parent="."]
 visible = false
 use_collision = true
-polygon = PoolVector2Array( -5, -0.2, -5, 1.5, -4.4, 1.5, -4.4, -0.1 )
+invert_faces = true
+polygon = PoolVector2Array( -5.8, -0.2, -5.8, 1.5, -5, 1.5, -5, -0.1 )
 mode = 2
 path_node = NodePath("..")
 path_interval = 1.0
 path_rotation = 2
 path_local = false
 path_continuous_u = false
-path_joined = true
+path_joined = false
 
 [node name="LeftRail" type="CSGPolygon" parent="."]
 invert_faces = true
