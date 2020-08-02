@@ -96,6 +96,9 @@ material/0 = SubResource( 4 )
 [node name="back_lights_glass" parent="audi_r8/audi_r8001/back_movement/front_movement/car1/back/back_lights" index="2"]
 material/0 = SubResource( 5 )
 
+[node name="license_plate006" parent="audi_r8/audi_r8001/back_movement/front_movement/car1/back" index="16"]
+visible = false
+
 [node name="CollisionShape" type="CollisionShape" parent="." index="8"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007703, 0.472288, 0.342286 )
 shape = SubResource( 6 )
