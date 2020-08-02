@@ -21,10 +21,13 @@ export var joy_throttle = JOY_ANALOG_R2
 export var throttle_mult = 1.0
 export var joy_brake = JOY_ANALOG_L2
 export var brake_mult = 1.0
+var backlight = null;
+
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	backlight=get_node("audi_r8/audi_r8001/back_movement/front_movement/car1/back/back_lights/back_lights001")
 	pass
 
 func _physics_process(delta):
@@ -36,7 +39,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_up"):
 		throttle_val = 1.0
 	if Input.is_action_pressed("ui_down"):
+		backlight.get_surface_material(1).emission_energy=5
 		brake_val = 1.0
+	else:
+		backlight.get_surface_material(1).emission_energy=1
 	if Input.is_action_pressed("ui_left"):
 		steer_val = 1.0
 	elif Input.is_action_pressed("ui_right"):

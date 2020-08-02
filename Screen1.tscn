@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/textures/TexturesCom_SoilCracked0140_1_seamless_S.jpg" type="Texture" id=1]
 [ext_resource path="res://scripts/Suspension-Controls.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=3]
-[ext_resource path="res://assets/textures/TexturesCom_Asphalt_1x1_512_albedo.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/TexturesCom_Roads0148_1_seamless_S.jpg" type="Texture" id=4]
 [ext_resource path="res://Car2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Car.gd" type="Script" id=6]
+[ext_resource path="res://assets/Materials/rail-materiall.tres" type="Material" id=7]
 
-[sub_resource type="ConvexPolygonShape" id=6]
-points = PoolVector3Array( -100, -0.1, -100, 100, -0.1, -100, 100, -0.1, 100, -100, -0.1, 100 )
+[sub_resource type="ConvexPolygonShape" id=1]
+points = PoolVector3Array( -100, -0.1, -100, 100, -0.1, -100, 100, -0.1, 1000, -100, -0.1, 1000 )
 
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 1, 1 )
@@ -21,17 +22,18 @@ uv1_scale = Vector3( 670, 600, 220 )
 
 [sub_resource type="Curve3D" id=4]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.151871, 0, 6.22618, -0.253914, 0, -8.8368, 0.253914, 0, 8.8368, -6.3484, 0, 25.9923, -15.8983, 0, -4.90688, 15.8983, 0, 4.90688, 9.54986, 0, 37.7688, 1.53874, 0, 32.2062, -1.53874, 0, -32.2062, 44.5195, 2.26978, 24.0203, 6.15938, 0, 16.2384, -6.15938, 0, -16.2384, 30.085, 3.16415, -8.37165, 2.55157, 0, 12.169, -2.55157, 0, -12.169, 39.7764, 1.86574, -36.0711, 0, 0, 0, 0, 0, 0, 25.2519, 0, -46.2368, 13.9355, 0, 6.47707, -13.9355, 0, -6.47707, -8.31114, 0, -47.4145, 0, 0, 0, 0, 0, 0, -34.2194, 0, -40.9374, 6.67334, 0, -3.53295, -6.67334, 0, 3.53295, -45.9959, 0, -30.9274, -2.15902, 0, -8.43982, 2.15902, 0, 8.43982, -44.8183, 0, -9.33715, -7.0659, 0, 4.12177, 7.0659, 0, -4.12177, -31.2753, 0, 3.617, -22.7679, 0, 9.61746, 22.7679, 0, -9.61746, -11.2553, 0, -22.8801, 0, 0, 0, 0, 0, 0, -0.151871, 0, 6.22618 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.151871, 0, 6.22618, -0.253914, 0, -8.8368, 0.253914, 0, 8.8368, -6.3484, 0, 25.9923, -15.8983, 0, -4.90688, 15.8983, 0, 4.90688, 9.64758, 0.538475, 48.524, 1.53874, 0, 32.2062, -1.53874, 0, -32.2062, 44.5195, 2.26978, 24.0203, 6.15938, 0, 16.2384, -6.15938, 0, -16.2384, 30.085, 3.16415, -8.37165, 2.55157, 0, 12.169, -2.55157, 0, -12.169, 39.7764, 1.86574, -36.0711, 0, 0, 0, 0, 0, 0, 25.2519, 0, -46.2368, 15.6988, 0.0657808, 6.4664, -15.6988, -0.0657808, -6.4664, -8.31114, 0, -47.4145, -25.7385, -0.810669, 3.06011, 25.7385, 0.810669, -3.06011, -11.2553, 0, -22.8801, 0, 0, 0, 0, 0, 0, -0.151871, 0, 6.22618 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
 [sub_resource type="SpatialMaterial" id=5]
-albedo_color = Color( 0.304957, 0.320312, 0.301544, 1 )
+albedo_color = Color( 0.364706, 0.372549, 0.403922, 1 )
 albedo_texture = ExtResource( 4 )
 metallic_specular = 0.0
-metallic_texture = ExtResource( 4 )
-uv1_scale = Vector3( 0.6, 0.6, 0.5 )
 uv2_scale = Vector3( 5, 5, 5 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.403922, 0.227451, 0.133333, 1 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -39,7 +41,7 @@ uv2_scale = Vector3( 5, 5, 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody/CollisionShape"]
 transform = Transform( 1000, 0, 0, 0, 1, 0, 0, 0, 1000, 0, -0.1, 0 )
@@ -64,13 +66,28 @@ target_distance = 6.5
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.159424, 0 )
 
 [node name="Path" type="Path" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.656097, 0 )
 curve = SubResource( 4 )
 
 [node name="Road" type="CSGPolygon" parent="Spatial/Path"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.104652, -0.024559, -0.0419006 )
+snap = 0.117
 use_collision = true
 invert_faces = true
 polygon = PoolVector2Array( -4.5, 0, -4.5, 0, 4.5, 0.1, 4.5, 0.1 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.809
+path_rotation = 2
+path_local = true
+path_continuous_u = false
+path_joined = true
+material = SubResource( 5 )
+
+[node name="RightBarrier" type="CSGPolygon" parent="Spatial/Path"]
+visible = false
+use_collision = true
+polygon = PoolVector2Array( 5, -0.2, 5, 1.5, 4.4, 1.5, 4.4, -0.1 )
 mode = 2
 path_node = NodePath("..")
 path_interval = 1.0
@@ -78,7 +95,66 @@ path_rotation = 2
 path_local = false
 path_continuous_u = false
 path_joined = true
-material = SubResource( 5 )
+
+[node name="LeftBarrier" type="CSGPolygon" parent="Spatial/Path"]
+visible = false
+use_collision = true
+polygon = PoolVector2Array( -5, -0.2, -5, 1.5, -4.4, 1.5, -4.4, -0.1 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.0
+path_rotation = 2
+path_local = false
+path_continuous_u = false
+path_joined = true
+
+[node name="LeftRail" type="CSGPolygon" parent="Spatial/Path"]
+invert_faces = true
+polygon = PoolVector2Array( -5, 0.6, -5, 0.68, -4.95, 0.68, -4.95, 0.6 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.0
+path_rotation = 2
+path_local = false
+path_continuous_u = false
+path_joined = true
+material = ExtResource( 7 )
+
+[node name="RightRail" type="CSGPolygon" parent="Spatial/Path"]
+invert_faces = true
+polygon = PoolVector2Array( 5, 0.6, 5, 0.68, 4.95, 0.68, 4.95, 0.6 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.0
+path_rotation = 2
+path_local = false
+path_continuous_u = false
+path_joined = true
+material = ExtResource( 7 )
+
+[node name="RightWall" type="CSGPolygon" parent="Spatial/Path"]
+invert_faces = true
+polygon = PoolVector2Array( 0, 0, 5.9, 0, 8, -3 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.0
+path_rotation = 2
+path_local = false
+path_continuous_u = false
+path_joined = true
+material = SubResource( 6 )
+
+[node name="LeftWall" type="CSGPolygon" parent="Spatial/Path"]
+invert_faces = true
+polygon = PoolVector2Array( 0, -0.1, -5.9, -0.1, -8, -3 )
+mode = 2
+path_node = NodePath("..")
+path_interval = 1.0
+path_rotation = 2
+path_local = false
+path_continuous_u = false
+path_joined = true
+material = SubResource( 6 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -243,7 +319,7 @@ __meta__ = {
 }
 
 [node name="Car2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95442, 0.294149, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95442, 1.27826, 0 )
 script = ExtResource( 6 )
 [connection signal="value_changed" from="CanvasLayer/Damping-compression" to="CanvasLayer/Damping-compression" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Damping-relaxation" to="CanvasLayer/Damping-relaxation" method="_on_value_changed"]
