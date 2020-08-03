@@ -213,6 +213,8 @@ __meta__ = {
 [node name="Car2" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.95442, 1.27826, 0 )
 script = ExtResource( 6 )
+steer_speed = 0.8
+throttle_mult = 0.7
 [connection signal="value_changed" from="CanvasLayer/Damping-compression" to="CanvasLayer/Damping-compression" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Damping-relaxation" to="CanvasLayer/Damping-relaxation" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Rest-Length" to="CanvasLayer/Rest-Length" method="_on_value_changed"]

@@ -21,7 +21,10 @@ export var joy_throttle = JOY_ANALOG_R2
 export var throttle_mult = 1.0
 export var joy_brake = JOY_ANALOG_L2
 export var brake_mult = 1.0
-var backlight = null;
+var backlight = null
+var reverse = false
+var ready_reverse = false
+var reversing = false
 
 
 func _ready():
@@ -35,18 +38,37 @@ func _physics_process(delta):
 	var throttle_val = throttle_mult * Input.get_joy_axis(0, joy_throttle)
 	var brake_val = brake_mult * Input.get_joy_axis(0, joy_brake)
 	
+	
 	# overrules for keyboard
-	if Input.is_action_pressed("ui_up"):
-		throttle_val = 1.0
-	if Input.is_action_pressed("ui_down"):
+	if (Input.is_action_pressed("ui_up") and !reverse) or (Input.is_action_pressed("ui_down") and reverse):
+		if reverse:
+			throttle_val=-1.0
+		else:
+			throttle_val=1.1
+	if (Input.is_action_pressed("ui_down") and !reverse) or  (Input.is_action_pressed("ui_up") and reverse):
 		backlight.get_surface_material(1).emission_energy=5
 		brake_val = 1.0
+			
+		if linear_velocity.length()<.7:
+			ready_reverse=true
+		if reversing:
+			reversing=false
+			ready_reverse = false
+			reverse=!reverse
+			
 	else:
+		if linear_velocity.length()<.7 and ready_reverse:
+			reversing = true
+		else:
+			reversing = false
 		backlight.get_surface_material(1).emission_energy=1
+		
+		
 	if Input.is_action_pressed("ui_left"):
 		steer_val = 1.0
 	elif Input.is_action_pressed("ui_right"):
 		steer_val = -1.0
+	
 	
 	engine_force = throttle_val * MAX_ENGINE_FORCE
 	brake = brake_val * MAX_BRAKE_FORCE
