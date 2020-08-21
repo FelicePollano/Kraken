@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/textures/TexturesCom_SoilCracked0140_1_seamless_S.jpg" type="Texture" id=1]
 
-[sub_resource type="Shader" id=7]
+[sub_resource type="Shader" id=1]
 code = "shader_type spatial;
 uniform sampler2D terrain_texture : hint_albedo;
 //uniform sampler2D terrain_normalmap : hint_normal;
@@ -21,5 +21,5 @@ void fragment() {
 }"
 
 [resource]
-shader = SubResource( 7 )
+shader = SubResource( 1 )
 shader_param/terrain_texture = ExtResource( 1 )
