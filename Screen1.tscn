@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://baset_track.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Suspension-Controls.gd" type="Script" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://assets/sounds/kraken_soundtrack.wav" type="AudioStream" id=4]
 [ext_resource path="res://Car2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Car.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/242740__marlonhj__engine.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/Materials/terrain_material.tres" type="Material" id=8]
+[ext_resource path="res://scripts/CarNoise.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape" id=1]
 points = PoolVector3Array( -100, -0.1, -100, 100, -0.1, -100, 100, -0.1, 1000, -100, -0.1, 1000 )
@@ -222,6 +224,12 @@ throttle_mult = 0.7
 stream = ExtResource( 4 )
 volume_db = -9.231
 autoplay = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 7 )
+unit_db = 3.926
+autoplay = true
+script = ExtResource( 9 )
 [connection signal="value_changed" from="CanvasLayer/Damping-compression" to="CanvasLayer/Damping-compression" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Damping-relaxation" to="CanvasLayer/Damping-relaxation" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Rest-Length" to="CanvasLayer/Rest-Length" method="_on_value_changed"]

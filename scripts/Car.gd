@@ -84,3 +84,6 @@ func _physics_process(delta):
 			steer_angle = steer_target
 	
 	steering = steer_angle
+
+
+
