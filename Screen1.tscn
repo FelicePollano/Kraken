@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://baset_track.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Suspension-Controls.gd" type="Script" id=2]
 [ext_resource path="res://scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/kraken_soundtrack.wav" type="AudioStream" id=4]
 [ext_resource path="res://Car2.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/Car.gd" type="Script" id=6]
 [ext_resource path="res://assets/Materials/terrain_material.tres" type="Material" id=8]
@@ -216,6 +217,11 @@ script = ExtResource( 6 )
 MAX_STEER_ANGLE = 0.35
 steer_speed = 0.9
 throttle_mult = 0.7
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -9.231
+autoplay = true
 [connection signal="value_changed" from="CanvasLayer/Damping-compression" to="CanvasLayer/Damping-compression" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Damping-relaxation" to="CanvasLayer/Damping-relaxation" method="_on_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Rest-Length" to="CanvasLayer/Rest-Length" method="_on_value_changed"]

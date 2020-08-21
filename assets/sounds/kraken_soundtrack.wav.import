@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/kraken_soundtrack.wav-5acd84bd95b58f28552f6f7cd0d0f564.sample"
+
+[deps]
+
+source_file="res://assets/sounds/kraken_soundtrack.wav"
+dest_files=[ "res://.import/kraken_soundtrack.wav-5acd84bd95b58f28552f6f7cd0d0f564.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
